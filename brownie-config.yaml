@@ -1,0 +1,21 @@
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+networks:
+  goerli:
+    eth_usd_price_feed: ${PRICE_FEED_ADDRESS}
+    verify: True
+  mainnet-fork-dev:
+    eth_usd_price_feed: ${MAINNET_PRICE_FEED_ADDRESS}
+    verify: False
+  development:
+    verify: False
+  ganache-local:
+    verify: False
+  default: development
+dependencies:
+  - smartcontractkit/chainlink-brownie-contracts@0.5.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.5.1'
